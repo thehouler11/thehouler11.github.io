@@ -67,6 +67,19 @@
     .slideshow img.show {
       opacity: 1;
     }
+
+    /* Smaller text for mobile */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px; /* smaller base text */
+      }
+      header h1 {
+        font-size: 1.5rem; /* shrink the site title */
+      }
+      nav a {
+        font-size: 0.9rem; /* shrink nav links */
+      }
+    }
   </style>
 </head>
 <body>
