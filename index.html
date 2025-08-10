@@ -24,12 +24,18 @@
 
     /* Navigation link styling */
     nav a { 
-      color:#9ad; 
-      text-decoration:none; 
-      margin-right:10px; 
+      display: inline-block;
+      padding: 8px 14px;
+      background: #111;
+      color: #9ad;
+      border: 1px solid #333;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s; 
     }
     nav a:hover { 
-      text-decoration:underline; 
+      background: #9ad;
+      color: #000; 
     }
     nav {
       display: flex;
