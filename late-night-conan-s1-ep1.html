@@ -75,5 +75,71 @@
       </figure>
     </div>
   </main>
+
+  <!-- Episode navigation -->
+  <nav id="episode-nav" class="episode-nav"></nav>
+
+  <style>
+    .episode-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .episode-nav a {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .episode-nav a:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .episode-nav .spacer { flex: 1; }
+  </style>
+
+  <script>
+    // --- CONFIG FOR SEASON 1 ---
+    // Change this to your actual subfolder if different:
+    const SEASON_BASE = "/late-night-conan/season-1/";
+    // List episode page filenames in order (update as you add pages)
+    const EPISODES = [
+      "episode-1.html",
+      "episode-2.html",
+      "episode-3.html"
+      // add more as you build them...
+    ];
+
+    // Tell the script which episode THIS page is.
+    // For Episode 1 page, keep this as "episode-1.html".
+    const CURRENT_EP = "episode-1.html";
+
+    (function buildEpisodeNav() {
+      const nav = document.getElementById("episode-nav");
+      if (!nav) return;
+
+      const idx = EPISODES.indexOf(CURRENT_EP);
+      if (idx === -1) return;
+
+      const hasPrev = idx > 0;
+      const hasNext = idx < EPISODES.length - 1;
+
+      const prevLink = hasPrev
+        ? `<a href="${SEASON_BASE + EPISODES[idx - 1]}">← Previous</a>`
+        : "";
+
+      const nextLink = hasNext
+        ? `<a href="${SEASON_BASE + EPISODES[idx + 1]}">Next →</a>`
+        : "";
+
+      // Layout: Previous on left (if any), Next on right (if any)
+      nav.innerHTML = `
+        <div>${prevLink}</div>
+        <div class="spacer"></div>
+        <div>${nextLink}</div>
+      `;
+    })();
+  </script>
+
 </body>
 </html>
