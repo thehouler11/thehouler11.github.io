@@ -34,7 +34,12 @@
     /* === Slideshow Styling === */
     .slideshow {
       position: relative;         /* Needed for absolute positioning of images */
-      height: 260px;               /* Fixed height for slideshow box */
+      
+      /* Responsive height */
+      aspect-ratio: 16 / 9;  /* scales with width */
+      height: auto;
+      min-height: 180px;     /* not too short on phones */
+      max-height: 420px;     /* optional cap on big screens */
       border-radius: 16px;         /* Rounded corners */
       overflow: hidden;            /* Hide overflowing parts of images */
       border: 1px solid #222;      /* Thin border */
