@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   <title>French Night Archives</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
+    /* === General Page Styling === */
     body { 
       margin:0; 
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; 
-      background:#000; 
-      color:#fff; 
+      background:#000; /* Black background */
+      color:#fff;      /* White text */
     }
+
+    /* Limit content width and center it */
     header, nav, main { 
       max-width: 960px; 
       margin: 0 auto; 
       padding: 16px; 
     }
+
+    /* Navigation link styling */
     nav a { 
       color:#9ad; 
       text-decoration:none; 
@@ -25,55 +31,61 @@
       text-decoration:underline; 
     }
 
-    /* Slideshow container */
+    /* === Slideshow Styling === */
     .slideshow {
-      position: relative;
-      height: 260px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #222;
-      background: #09090f;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position: relative;         /* Needed for absolute positioning of images */
+      height: 260px;               /* Fixed height for slideshow box */
+      border-radius: 16px;         /* Rounded corners */
+      overflow: hidden;            /* Hide overflowing parts of images */
+      border: 1px solid #222;      /* Thin border */
+      background: #09090f;         /* Fallback background color */
+      box-shadow: 0 10px 30px rgba(0,0,0,.35); /* Drop shadow */
     }
 
-    /* Each image */
+    /* Slideshow images */
     .slideshow img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity .8s ease;
+      position: absolute;  /* Stack all images in the same spot */
+      inset: 0;            /* Top, right, bottom, left all 0 */
+      width: 100%;         /* Full container width */
+      height: 100%;        /* Full container height */
+      object-fit: cover;   /* Crop/scale image to fill */
+      opacity: 0;          /* Start hidden */
+      transition: opacity .8s ease; /* Fade effect */
     }
 
-    /* Show the active one */
+    /* Active (visible) image */
     .slideshow img.show {
       opacity: 1;
     }
   </style>
 </head>
 <body>
+  <!-- Page Header -->
   <header>
     <h1>French Night Archives</h1>
   </header>
+
+  <!-- Navigation Menu -->
   <nav>
     <a href="#">Home</a>
     <a href="#">Conan O'Brien</a>
     <a href="#">Music</a>
     <a href="#">YouTube Finds</a>
   </nav>
+
+  <!-- Main Content -->
   <main>
     <h2>Welcome!</h2>
     <p>This site shows screenshots and info from my personal collection.</p>
    
-    <!-- Slideshow of Late Night hosts -->
+    <!-- === Slideshow of Late Night hosts === -->
     <div class="slideshow">
       <img src="https://variety.com/wp-content/uploads/2016/03/conan-obrien-korea.jpg" alt="Conan O'Brien">
       <img src="https://e1.pxfuel.com/desktop-wallpaper/542/665/desktop-wallpaper-david-letterman.jpg" alt="David Letterman">
       <img src="https://i.pinimg.com/474x/1d/53/cb/1d53cb7f5a7ca22e74fea3767a4f46a3.jpg" alt="Jay Leno">
     </div>
 
+    <!-- Section Links -->
     <h3>Browse Sections</h3>
     <ul>
       <li><a href="/late-night.html">Late Night Talk Shows</a></li>
@@ -82,22 +94,27 @@
     </ul>
   </main>
 
+  <!-- Slideshow Script -->
   <script>
-    const slides = document.querySelectorAll('.slideshow img');
-    let index = 0;
+    const slides = document.querySelectorAll('.slideshow img'); // All images in slideshow
+    let index = 0; // Current image index
 
+    // Show only the image that matches the current index
     function showSlide(n) {
       slides.forEach((img, i) => {
         img.classList.toggle('show', i === n);
       });
     }
 
+    // Show first slide immediately
     showSlide(index);
 
+    // Change slide every 3 seconds
     setInterval(() => {
-      index = (index + 1) % slides.length;
+      index = (index + 1) % slides.length; // Loop back to start
       showSlide(index);
-    }, 3000); // change every 3 seconds
+    }, 3000);
   </script>
 </body>
 </html>
+
