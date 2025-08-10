@@ -54,13 +54,22 @@
 
     /* Slideshow images */
     .slideshow img {
-      position: absolute;  /* Stack all images in the same spot */
-      inset: 0;            /* Top, right, bottom, left all 0 */
-      width: 100%;         /* Full container width */
-      height: 100%;        /* Full container height */
-      object-fit: cover;   /* Crop/scale image to fill */
-      opacity: 0;          /* Start hidden */
-      transition: opacity .8s ease; /* Fade effect */
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* fills box, crops edges if needed */
+      object-position: center; /* centers the crop */
+      opacity: 0;
+      transition: opacity .8s ease;
+    }
+
+    /* On small screens, let the image fit without heavy cropping */
+    @media (max-width: 600px) {
+      .slideshow img {
+        object-fit: contain;  /* show full image */
+        background-color: #000; /* fill gaps with black */
+      }
     }
 
     /* Active (visible) image */
