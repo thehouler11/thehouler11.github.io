@@ -98,6 +98,29 @@
     body {
       animation: fadeIn .5s ease-out;
     }
+
+    /* Style the section links as buttons */
+    main ul {
+      list-style: none;       /* remove bullet points */
+      padding: 0;
+    }
+    main ul li {
+      margin-bottom: 10px;    /* space between buttons */
+    }
+    main ul a {
+      display: inline-block;
+      background: #111;
+      color: #9ad;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    main ul a:hover {
+      background: #9ad;
+      color: #000;
+    }
   </style>
 </head>
 <body>
